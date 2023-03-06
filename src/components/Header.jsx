@@ -1,4 +1,5 @@
 import React from "react";
+import {MdShoppingBasket} from "react-icons/md"
 
 const Header = () => {
   return (
@@ -10,12 +11,22 @@ const Header = () => {
             <p className="text-headingColor text-xl font-bold">E-waiter</p>
         </div>
 
+        <div className="flex gap-7">
         <ul className="flex gap-8 items-center">
-            <li>Home</li>
-            <li>Menu</li>
-            <li>About</li>
-            <li>Service</li>
+            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">Home</li>
+            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">Menu</li>
+            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">About</li>
+            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">Service</li>
         </ul>
+
+        <div className="relative flex items-center cursor-pointer">
+          <MdShoppingBasket className="text-textColor text-2xl"/>
+          <div className="absolute -top-1 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
+            <p className="text-xs text-white font-semibold">2</p>
+          </div>
+        </div>
+        <img src="img/avatar.png" alt="user-profile" className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer" />
+        </div>
       </div>
     </header>
   );
