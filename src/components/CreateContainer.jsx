@@ -17,10 +17,10 @@ import {
 import { storage } from "../firebase";
 import { Loader } from "./index";
 import { actionType } from "../context/reducer";
+import { getAllFoodItems, saveItem } from "../utils/firebaseFunctions";
 
 const CreateContainer = () => {
   const [title, setTitle] = useState("");
-  const [calories, setCalories] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState(null);
   const [imageAsset, setImageAsset] = useState(null);
@@ -45,7 +45,7 @@ const CreateContainer = () => {
       (error) => {
         console.log(error);
         setFields(true);
-        setMsg("Error while uploading : Try AGain 🙇");
+        setMsg("Error while uploading : Try Again 🙇");
         setAlertStatus("danger");
         setTimeout(() => {
           setFields(false);
@@ -85,7 +85,7 @@ const CreateContainer = () => {
   const saveDetails = () => {
     setIsLoading(true);
     try {
-      if (!title ||  !imageAsset || !price || !category) {
+      if (!title || !imageAsset || !price || !category) {
         setFields(true);
         setMsg("Required fields can't be empty");
         setAlertStatus("danger");
@@ -129,7 +129,6 @@ const CreateContainer = () => {
   const clearData = () => {
     setTitle("");
     setImageAsset(null);
-    setCalories("");
     setPrice("");
     setCategory("Select Category");
   };
