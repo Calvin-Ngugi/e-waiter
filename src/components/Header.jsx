@@ -94,12 +94,18 @@ const Header = () => {
               >
                 {user && user.email === "ncalvin67@gmail.com" && (
                   <Link to={"/createItem"}>
-                    <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 rounded-lg transition-all duration-100 ease-in-out text-textColor text-base">
+                    <p
+                      onClick={() => setIsMenu(false)}
+                      className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 rounded-lg transition-all duration-100 ease-in-out text-textColor text-base"
+                    >
                       New Item <MdAdd />
                     </p>
                   </Link>
                 )}
-                <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 rounded-lg transition-all duration-100 ease-in-out text-textColor text-base">
+                <p
+                  onClick={logout}
+                  className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 rounded-lg transition-all duration-100 ease-in-out text-textColor text-base"
+                >
                   Logout <MdLogout />
                 </p>
               </motion.div>
@@ -137,7 +143,10 @@ const Header = () => {
             >
               {user && user.email === "ncalvin67@gmail.com" && (
                 <Link to={"/createItem"}>
-                  <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 rounded-lg transition-all duration-100 ease-in-out text-textColor text-base">
+                  <p
+                    onClick={() => setIsMenu(false)}
+                    className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 rounded-lg transition-all duration-100 ease-in-out text-textColor text-base"
+                  >
                     New Item <MdAdd />
                   </p>
                 </Link>

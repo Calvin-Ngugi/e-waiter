@@ -4,3 +4,42 @@ export const heroData = [
     {id : 3, name : 'Icecream', desc: 'Chocolate & vanilla', price: '420.00', imageScr: 'img/i1.png' },
     {id : 4, name : 'Fruits', desc: 'Pineapple', price: '60.00', imageScr: 'img/f2.png' },
 ]
+
+export const categories = [
+    {
+      id: 1,
+      name: "Chicken",
+      urlParamName: "chicken",
+    },
+    {
+      id: 2,
+      name: "Curry",
+      urlParamName: "curry",
+    },
+    {
+      id: 3,
+      name: "Rice",
+      urlParamName: "rice",
+    },
+    {
+      id: 4,
+      name: "Fish",
+      urlParamName: "fish",
+    },
+    {
+      id: 5,
+      name: "Fruits",
+      urlParamName: "fruits",
+    },
+    {
+      id: 6,
+      name: "Icecreams",
+      urlParamName: "icecreams",
+    },
+  
+    {
+      id: 7,
+      name: "Soft Drinks",
+      urlParamName: "drinks",
+    },
+  ];
