@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { motion } from "framer-motion";
-import { useStateValue } from "../context/StateProvider";
+import { useStateValue } from "../context/stateProvider";
 import { actionType } from "../context/reducer";
-import { fetchCart } from "../utils/fetchLocalStorageData";
+import { fetchCart } from "../utils/fetchLocalStorage";
 let items = [];
 
 const CartItem = ({ item, setFlag, flag }) => {

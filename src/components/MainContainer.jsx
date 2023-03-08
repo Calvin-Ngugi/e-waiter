@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { useStateValue } from "../context/stateProvider";
-import {HomeContainer, RowContainer} from "./index";
+import {HomeContainer, RowContainer, CartContainer} from "./index";
+import MenuContainer from "./MenuContainer";
 
 const MainContainer = () => {
   const [{ foodItems, cartShow }, dispatch] = useStateValue();
@@ -43,6 +44,10 @@ const MainContainer = () => {
           data={foodItems?.filter((n) => n.category === "chicken")}
         />
         </section>
+
+        <MenuContainer />
+
+      {cartShow && <CartContainer />}
     </div>
   );
 };

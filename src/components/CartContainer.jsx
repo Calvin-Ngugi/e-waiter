@@ -3,9 +3,8 @@ import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { RiRefreshFill } from "react-icons/ri";
 
 import { motion } from "framer-motion";
-import { useStateValue } from "../context/StateProvider";
+import { useStateValue } from "../context/stateProvider";
 import { actionType } from "../context/reducer";
-import EmptyCart from "../img/emptyCart.svg";
 import CartItem from "./CartItem";
 
 const CartContainer = () => {
@@ -118,7 +117,7 @@ const CartContainer = () => {
         </div>
       ) : (
         <div className="w-full h-full flex flex-col items-center justify-center gap-6">
-          <img src={EmptyCart} className="w-300" alt="" />
+          <img src="img/EmptyCart.svg" className="w-300" alt="" />
           <p className="text-xl text-textColor font-semibold">
             Add some items to your cart
           </p>
