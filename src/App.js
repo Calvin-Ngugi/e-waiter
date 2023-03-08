@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { CreateContainer, Header, MainContainer } from "./components";
@@ -17,6 +17,10 @@ const App = () => {
       });
     });
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <AnimatePresence wait>
