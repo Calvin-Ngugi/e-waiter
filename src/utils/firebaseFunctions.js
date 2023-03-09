@@ -8,7 +8,6 @@ import {
 } from "firebase/firestore";
 import { firestore } from "../firebase";
 
-
 // Saving new Item
 export const saveItem = async (data) => {
   await setDoc(doc(firestore, "foodItems", `${Date.now()}`), data, {
@@ -23,4 +22,11 @@ export const getAllFoodItems = async () => {
   );
 
   return items.docs.map((doc) => doc.data());
+};
+
+// sending order to waiter side
+export const sendOrder = async (data) => {
+  await setDoc(doc(firestore, "pendingOrders", `${Date.now()}`), data, {
+    merge: true,
+  });
 };

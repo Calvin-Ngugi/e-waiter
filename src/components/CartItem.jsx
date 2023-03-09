@@ -19,7 +19,7 @@ const CartItem = ({ item, setFlag, flag }) => {
   };
 
   const updateQty = (action, id) => {
-    if (action === "add") {
+    if (action == "add") {
       setQty(qty + 1);
       cartItems.map((item) => {
         if (item.id === id) {
@@ -30,7 +30,7 @@ const CartItem = ({ item, setFlag, flag }) => {
       cartDispatch();
     } else {
       // initial state value is one so you need to check if 1 then remove it
-      if (qty === 1) {
+      if (qty == 1) {
         items = cartItems.filter((item) => item.id !== id);
         setFlag(flag + 1);
         cartDispatch();
