@@ -106,7 +106,7 @@ const Header = () => {
                 exit={{ opacity: 0, scale: 0.6 }}
                 className="w-40 bg-primary shadow-xl flex flex-col rounded-lg absolute top-12 right-0"
               >
-                {user && user.email === "ncalvin67@gmail.com" && (
+                {user && user.email === ("ncalvin67@gmail.com" || "michaelmagu2024@gmail.com") && (
                   <Link to={"/createItem"}>
                     <p
                       onClick={() => setIsMenu(false)}
