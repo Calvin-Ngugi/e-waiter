@@ -9,14 +9,18 @@ const MainContainer = () => {
   const [{ foodItems, cartShow }, dispatch] = useStateValue();
   const [scrollValue, setScrollValue] = useState(0);
   const [isSet, setIsSet] = useState(false);
+  const [tables, setTables] = useState("");
 
   useEffect(() => {}, [scrollValue, cartShow]);
 
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center">
       <HomeContainer />
-      {isSet ? (
-        <TablesContainer />
+      {!isSet ? (
+        <TablesContainer 
+          setTables={setTables}
+          setIsSet={setIsSet}
+        />
       ) : (
         <>
           <section className="w-full my-6">
