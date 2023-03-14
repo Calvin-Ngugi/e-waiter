@@ -15,3 +15,12 @@ export const fetchCart = () => {
 
   return cartInfo ? cartInfo : [];
 };
+
+export const fetchOrder = () => {
+  const orderInfo =
+    localStorage.getItem("pendingOrders") !== "undefined"
+      ? JSON.parse(localStorage.getItem("pendingOrders"))
+      : localStorage.clear();
+
+  return orderInfo ? orderInfo : [];
+};

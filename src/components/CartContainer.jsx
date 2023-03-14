@@ -8,7 +8,7 @@ import { actionType } from "../context/reducer";
 import CartItem from "./CartItem";
 
 const CartContainer = () => {
-  const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
+  const [{ cartShow, cartItems, user,  }, dispatch] = useStateValue();
   const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
 
@@ -35,6 +35,15 @@ const CartContainer = () => {
 
     localStorage.setItem("cartItems", JSON.stringify([]));
   };
+
+  const saveOrder = () => {
+    dispatch({
+      type: actionType.SET_PENDING_ORDERS,
+
+      cartItems: [],
+    });
+    localStorage.setItem("order", JSON.stringify([]));
+  }
 
   return (
     <motion.div
@@ -77,22 +86,18 @@ const CartContainer = () => {
           </div>
 
           {/* cart total section */}
-          <div className="w-full flex-1 bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly px-8 py-2">
+          <div className="w-full flex-1 bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly px-7 py-3">
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-400 text-lg">Sub Total</p>
               <p className="text-gray-400 text-lg">Ksh {tot}</p>
             </div>
-            <div className="w-full flex items-center justify-between">
-              <p className="text-gray-400 text-lg">Delivery</p>
-              <p className="text-gray-400 text-lg">Ksh 2.5</p>
-            </div>
 
-            <div className="w-full border-b border-gray-600 my-2"></div>
+            <div className="w-full border-b border-gray-600 my-1"></div>
 
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-200 text-xl font-semibold">Total</p>
               <p className="text-gray-200 text-xl font-semibold">
-                Ksh{tot + 2.5}
+                Ksh{tot}
               </p>
             </div>
 
@@ -101,6 +106,7 @@ const CartContainer = () => {
                 whileTap={{ scale: 0.8 }}
                 type="button"
                 className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+                onClick={saveOrder}
               >
                 Check Out
               </motion.button>
