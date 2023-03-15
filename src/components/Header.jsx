@@ -11,7 +11,7 @@ const Header = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
-  const [{ user, cartShow, cartItems}, dispatch] = useStateValue();
+  const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
 
   const [isMenu, setIsMenu] = useState(false);
 
@@ -63,18 +63,30 @@ const Header = () => {
             exit={{ opacity: 0, x: 200 }}
             className="flex gap-8 items-center"
           >
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Home
-            </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <Link to={"/"} hrefLang="#home">
+              <li
+                href="#home"
+                className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer"
+              >
+                Home
+              </li>
+            </Link>
+
+            <a
+              href="#menu"
+              className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer"
+            >
               Menu
-            </li>
+            </a>
+
             <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
               About
             </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Service
-            </li>
+            <Link to={"/orders"}>
+              <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+                Orders
+              </li>
+            </Link>
           </motion.ul>
 
           <div
@@ -106,16 +118,18 @@ const Header = () => {
                 exit={{ opacity: 0, scale: 0.6 }}
                 className="w-40 bg-primary shadow-xl flex flex-col rounded-lg absolute top-12 right-0"
               >
-                {user && user.email === ("ncalvin67@gmail.com" || "michaelmagu2024@gmail.com") && (
-                  <Link to={"/createItem"}>
-                    <p
-                      onClick={() => setIsMenu(false)}
-                      className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 rounded-lg transition-all duration-100 ease-in-out text-textColor text-base"
-                    >
-                      New Item <MdAdd />
-                    </p>
-                  </Link>
-                )}
+                {user &&
+                  user.email ===
+                    ("ncalvin67@gmail.com" || "michaelmagu2024@gmail.com") && (
+                    <Link to={"/createItem"}>
+                      <p
+                        onClick={() => setIsMenu(false)}
+                        className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 rounded-lg transition-all duration-100 ease-in-out text-textColor text-base"
+                      >
+                        New Item <MdAdd />
+                      </p>
+                    </Link>
+                  )}
                 <p
                   onClick={logout}
                   className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 rounded-lg transition-all duration-100 ease-in-out text-textColor text-base"
@@ -129,7 +143,7 @@ const Header = () => {
       </div>
       {/* mobile */}
       <div className="flex md:hidden w-full h-full justify-between items-center">
-      <div
+        <div
           className="relative flex items-center justify-center"
           onClick={showCart}
         >

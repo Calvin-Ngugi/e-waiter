@@ -53,7 +53,7 @@ const MainContainer = () => {
             />
           </section>
 
-          <MenuContainer />
+          <MenuContainer/>
         </>
       )}
 

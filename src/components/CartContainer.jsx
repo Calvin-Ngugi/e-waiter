@@ -8,7 +8,7 @@ import { actionType } from "../context/reducer";
 import CartItem from "./CartItem";
 
 const CartContainer = () => {
-  const [{ cartShow, cartItems, user,  }, dispatch] = useStateValue();
+  const [{ cartShow, cartItems, user, pendingOrders }, dispatch] = useStateValue();
   const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
 
@@ -38,11 +38,11 @@ const CartContainer = () => {
 
   const saveOrder = () => {
     dispatch({
-      type: actionType.SET_PENDING_ORDERS,
-
+      type: actionType.SET_PENDING_ORDERS && actionType.SET_CARTITEMS,
+      pendingOrders: cartItems,
       cartItems: [],
     });
-    localStorage.setItem("order", JSON.stringify([]));
+    localStorage.setItem("pendingOrders", JSON.stringify([]));
   }
 
   return (
