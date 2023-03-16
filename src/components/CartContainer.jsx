@@ -6,19 +6,20 @@ import { motion } from "framer-motion";
 import { useStateValue } from "../context/stateProvider";
 import { actionType } from "../context/reducer";
 import CartItem from "./CartItem";
+import { sendOrder } from "../utils/firebaseFunctions";
 
 const CartContainer = () => {
   const [{ cartShow, cartItems, user, pendingOrders }, dispatch] = useStateValue();
   const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
-
+  
   const showCart = () => {
     dispatch({
       type: actionType.SET_CART_SHOW,
       cartShow: !cartShow,
     });
   };
-
+  
   useEffect(() => {
     let totalPrice = cartItems.reduce(function (accumulator, item) {
       return accumulator + item.qty * item.price;
@@ -26,7 +27,8 @@ const CartContainer = () => {
     setTot(totalPrice);
     console.log(tot);
   }, [tot, flag]);
-
+  
+  const convertedObjects = {};
   const clearCart = () => {
     dispatch({
       type: actionType.SET_CARTITEMS,
@@ -40,10 +42,13 @@ const CartContainer = () => {
     dispatch({
       type: actionType.SET_PENDING_ORDERS && actionType.SET_CARTITEMS,
       pendingOrders: cartItems,
-      cartItems: [],
+      cartItems: []
     });
     localStorage.setItem("pendingOrders", JSON.stringify([]));
+    sendOrder(Object.assign(convertedObjects, pendingOrders));
+    alert("Order has been sent successfully")
   }
+  
 
   return (
     <motion.div
