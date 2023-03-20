@@ -187,18 +187,25 @@ const Header = () => {
                 </Link>
               )}
               <ul className="flex flex-col gap-5 px-4 py-2">
-                <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100">
-                  Home
-                </li>
-                <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100">
+                <Link to={"/"} hrefLang="#home">
+                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100">
+                    Home
+                  </li>
+                </Link>
+                <a
+                  href="#menu"
+                  className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100"
+                >
                   Menu
-                </li>
+                </a>
                 <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100">
                   About
                 </li>
-                <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100">
-                  Service
-                </li>
+                <Link to={"/orders"}>
+                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100">
+                    Orders
+                  </li>
+                </Link>
               </ul>
 
               <p
