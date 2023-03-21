@@ -40,13 +40,15 @@ const CartContainer = () => {
 
   const saveOrder = () => {
     dispatch({
-      type: actionType.SET_PENDING_ORDERS && actionType.SET_CARTITEMS,
+      type: actionType.SET_PENDING_ORDERS,
       pendingOrders: cartItems,
-      cartItems: []
     });
     localStorage.setItem("pendingOrders", JSON.stringify([]));
     sendOrder(Object.assign(convertedObjects, pendingOrders));
-    alert("Order has been sent successfully")
+    dispatch({
+      type: actionType.SET_CARTITEMS,
+      cartItems: [],
+    })
   }
   
 

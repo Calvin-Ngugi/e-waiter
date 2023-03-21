@@ -3,11 +3,11 @@ import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { CreateContainer, Header, MainContainer, OrdersContainer } from "./components";
 import { useStateValue } from "./context/stateProvider";
-import { getAllFoodItems } from "./utils/firebaseFunctions";
+import { getAllFoodItems, getAllPendingOrders } from "./utils/firebaseFunctions";
 import { actionType } from "./context/reducer";
 
 const App = () => {
-  const [{ foodItems }, dispatch] = useStateValue();
+  const [{ foodItems, pendingOrders }, dispatch] = useStateValue();
 
   const fetchData = async () => {
     await getAllFoodItems().then((data) => {
@@ -18,8 +18,21 @@ const App = () => {
     });
   };
 
+  const fetchOrder = async () => {
+    await getAllPendingOrders().then((data) => {
+      dispatch({
+        type: actionType.SET_PENDING_ORDERS,
+        pendingOrders: data,
+      });
+    });
+  };
+
   useEffect(() => {
     fetchData();
+  }, []);
+
+  useEffect(() => {
+    fetchOrder();
   }, []);
 
   return (
@@ -27,7 +40,7 @@ const App = () => {
       <div className="w-screen h-auto flex flex-col bg-primary">
         <Header />
 
-        <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full">
+        <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full min-h-[90vh]">
           <Routes>
             <Route path="/*" element={<MainContainer />} />
             <Route path="/createItem" element={<CreateContainer />} />

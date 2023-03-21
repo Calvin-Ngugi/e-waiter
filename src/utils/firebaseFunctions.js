@@ -30,3 +30,12 @@ export const sendOrder = async (data) => {
     merge: true,
   });
 };
+
+//getOrders
+export const getAllPendingOrders = async () => {
+  const items = await getDocs(
+    query(collection(firestore, "pendingOrders"), orderBy("id"))
+  );
+
+  return items.docs.map((doc) => doc.data());
+};
