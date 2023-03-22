@@ -45,10 +45,6 @@ const CartContainer = () => {
     });
     localStorage.setItem("pendingOrders", JSON.stringify([]));
     sendOrder(Object.assign(convertedObjects, pendingOrders));
-    dispatch({
-      type: actionType.SET_CARTITEMS,
-      cartItems: [],
-    })
   }
   
 
@@ -114,6 +110,7 @@ const CartContainer = () => {
                 type="button"
                 className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
                 onClick={saveOrder}
+                onDoubleClick={clearCart}
               >
                 Check Out
               </motion.button>
