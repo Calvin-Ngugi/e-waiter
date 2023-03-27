@@ -71,7 +71,7 @@ const TablesContainer = ({ setTables, tables, setIsSet }) => {
             className="ml-0 md:ml-[70px] w-full md:w-auto border-none mt-5 outline-none bg-orange-400 px-12 py-2 rounded-lg text-lg text-black font-semibold"
             onClick={saveInfo}
           >
-            Submit
+            Proceed
           </button>
         </div>
       </div>

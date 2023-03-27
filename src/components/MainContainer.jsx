@@ -21,16 +21,12 @@ const MainContainer = () => {
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center">
       {!isSet ? (
-        <div>
-          <TablesContainer
-            setTables={setTables}
-            tables={tables}
-            setIsSet={setIsSet}
-          />
+        <div className="mt-10">
+          <HomeContainer isSet={isSet} tables={tables} setIsSet={setIsSet} setTables={setTables}/>
         </div>
       ) : (
         <>
-          <HomeContainer />
+          <HomeContainer isSet={isSet}/>
           <h1 className="text-2xl font-semibold capitalize text-white mt-5 mb-3 bg-black rounded-xl p-3">
             Table Number {tables}
           </h1>
