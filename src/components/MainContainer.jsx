@@ -2,7 +2,12 @@ import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { useStateValue } from "../context/stateProvider";
-import { HomeContainer, RowContainer, CartContainer, TablesContainer } from "./index";
+import {
+  HomeContainer,
+  RowContainer,
+  CartContainer,
+  TablesContainer,
+} from "./index";
 import MenuContainer from "./MenuContainer";
 
 const MainContainer = () => {
@@ -15,16 +20,20 @@ const MainContainer = () => {
 
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center">
-      <HomeContainer />
       {!isSet ? (
-        <TablesContainer 
-          setTables={setTables}
-          tables={tables}
-          setIsSet={setIsSet}
-        />
+        <div>
+          <TablesContainer
+            setTables={setTables}
+            tables={tables}
+            setIsSet={setIsSet}
+          />
+        </div>
       ) : (
         <>
-          <h1 className="text-2xl font-semibold capitalize text-white mt-5 mb-3 bg-black rounded-xl p-3">Table Number {tables}</h1>
+          <HomeContainer />
+          <h1 className="text-2xl font-semibold capitalize text-white mt-5 mb-3 bg-black rounded-xl p-3">
+            Table Number {tables}
+          </h1>
           <section className="w-full my-6">
             <div className="w-full flex items-center justify-between">
               <p className="text-2xl font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-32 before:h-1 before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100">
@@ -56,11 +65,11 @@ const MainContainer = () => {
             />
           </section>
 
-          <MenuContainer/>
+          <MenuContainer />
         </>
       )}
 
-      {cartShow && <CartContainer tables={tables}/>}
+      {cartShow && <CartContainer tables={tables} />}
     </div>
   );
 };

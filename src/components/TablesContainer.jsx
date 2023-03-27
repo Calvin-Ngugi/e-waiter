@@ -54,7 +54,7 @@ const TablesContainer = ({ setTables, tables, setIsSet }) => {
         )}
         
       <div>
-        <h1 className="text-[1.5rem] font-bold tracking-wide text-gray-700">Input your current table</h1>
+        <h1 className="text-[1.5rem] font-bold tracking-wide text-headingColor">Input your current table</h1>
         <div className="w-full py-2 border border-gray-900 flex items-center bg-white p-3 rounded-md">
           <input
             required

@@ -19,9 +19,9 @@ const HomeContainer = () => {
           </div>
         </div>
 
-        <p className="text-[2.5rem] lg:text-[4rem] font-bold tracking-wide text-headingColor">
-          Pick a table and place an
-          <span className="text-orange-600 text-[2.5rem] lg:text-[4rem]">
+        <p className="text-[2rem] lg:text-[3rem] font-bold tracking-wide text-headingColor">
+          Please go through our menu and place an
+          <span className="text-orange-600 text-[2rem] lg:text-[3.5rem]">
             {" "}
             Order
           </span>
@@ -34,9 +34,9 @@ const HomeContainer = () => {
           omnis? Quo, doloribus aliquam.
         </p>
 
-        <button className="bg-gradient-to-br from-orange-400 to-orange-500 w-full md:w-auto px-4 py-2 mb-5 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100">
+        <a href="#menu" className="bg-gradient-to-br from-orange-400 to-orange-500 w-full text-center md:w-auto px-4 py-2 mb-5 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100">
           Order Now
-        </button>
+        </a>
       </div>
 
       {/* right */}
