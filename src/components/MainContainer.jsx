@@ -6,15 +6,13 @@ import {
   HomeContainer,
   RowContainer,
   CartContainer,
-  TablesContainer,
+  MenuContainer
 } from "./index";
-import MenuContainer from "./MenuContainer";
 
-const MainContainer = () => {
+const MainContainer = ({tables, setTables}) => {
   const [{ foodItems, cartShow }, dispatch] = useStateValue();
   const [scrollValue, setScrollValue] = useState(0);
   const [isSet, setIsSet] = useState(false);
-  const [tables, setTables] = useState(0);
 
   useEffect(() => {}, [scrollValue, cartShow]);
 

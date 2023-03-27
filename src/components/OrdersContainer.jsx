@@ -35,7 +35,7 @@ const OrdersContainer = () => {
           ))): (
             <tr className="w-full h-full gap-6">
             <td colSpan="4" className="text-center">
-              <img src="img/EmptyCart.svg" className="w-80 mt-5 mx-auto text-center" alt="" />
+              <img src="img/NotFound.svg" className="w-80 mt-5 mx-auto text-center" alt="" />
               <p className="text-xl text-textColor font-semibold mt-5">
               No orders available currently
             </p>
