@@ -16,13 +16,15 @@ const MainContainer = () => {
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center">
       <HomeContainer />
-      {isSet ? (
+      {!isSet ? (
         <TablesContainer 
           setTables={setTables}
+          tables={tables}
           setIsSet={setIsSet}
         />
       ) : (
         <>
+          <h1 className="text-2xl font-semibold capitalize text-white mt-5 mb-3 bg-black rounded-xl p-3">Table Number {tables}</h1>
           <section className="w-full my-6">
             <div className="w-full flex items-center justify-between">
               <p className="text-2xl font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-32 before:h-1 before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100">
@@ -49,6 +51,7 @@ const MainContainer = () => {
             <RowContainer
               scrollValue={scrollValue}
               flag={true}
+              tables={tables}
               data={foodItems?.filter((n) => n.category === "chicken")}
             />
           </section>
@@ -57,7 +60,7 @@ const MainContainer = () => {
         </>
       )}
 
-      {cartShow && <CartContainer />}
+      {cartShow && <CartContainer tables={tables}/>}
     </div>
   );
 };

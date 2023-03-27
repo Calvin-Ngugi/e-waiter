@@ -7,7 +7,6 @@ const orderInfo = fetchOrder();
 export const initialState = {
     user: userInfo,
     foodItems: null,
-    tables: 0,
     cartShow: false,
     cartItems: cartInfo,
     pendingOrders: orderInfo,

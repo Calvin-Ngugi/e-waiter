@@ -20,10 +20,7 @@ const App = () => {
 
   const fetchOrder = async () => {
     await getAllPendingOrders().then((data) => {
-      dispatch({
-        type: actionType.SET_PENDING_ORDERS,
-        pendingOrders: data,
-      });
+      console.log(data);
     });
   };
 

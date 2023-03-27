@@ -6,7 +6,7 @@ import { actionType } from "../context/reducer";
 import { fetchCart } from "../utils/fetchLocalStorage";
 let items = [];
 
-const CartItem = ({ item, setFlag, flag }) => {
+const CartItem = ({ item, setFlag, flag, tables }) => {
   const [{ cartItems }, dispatch] = useStateValue();
   const [qty, setQty] = useState(item.qty);
 

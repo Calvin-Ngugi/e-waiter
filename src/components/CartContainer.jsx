@@ -8,7 +8,7 @@ import { actionType } from "../context/reducer";
 import CartItem from "./CartItem";
 import { sendOrder } from "../utils/firebaseFunctions";
 
-const CartContainer = () => {
+const CartContainer = ({tables}) => {
   const [{ cartShow, cartItems, user, pendingOrders }, dispatch] = useStateValue();
   const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
@@ -29,6 +29,7 @@ const CartContainer = () => {
   }, [tot, flag]);
   
   const convertedObjects = {};
+  
   const clearCart = () => {
     dispatch({
       type: actionType.SET_CARTITEMS,
@@ -74,7 +75,8 @@ const CartContainer = () => {
       {cartItems && cartItems.length > 0 ? (
         <div className="w-full h-full bg-cartBg rounded-t-[2rem] flex flex-col">
           {/* cart Items section */}
-          <div className="w-full h-340 md:h-42 px-6 py-10 flex flex-col gap-3 overflow-y-scroll scrollbar-none">
+          <div className="w-full h-340 md:h-42 px-6 py-6 flex flex-col gap-3 overflow-y-scroll scrollbar-none">
+            <p className="text-white">Table number {tables}</p>
             {/* cart Item */}
             {cartItems &&
               cartItems.length > 0 &&
@@ -84,6 +86,7 @@ const CartContainer = () => {
                   item={item}
                   setFlag={setFlag}
                   flag={flag}
+                  tables={tables}
                 />
               ))}
           </div>
@@ -104,7 +107,6 @@ const CartContainer = () => {
               </p>
             </div>
 
-            {user ? (
               <motion.button
                 whileTap={{ scale: 0.8 }}
                 type="button"
@@ -113,16 +115,7 @@ const CartContainer = () => {
                 onDoubleClick={clearCart}
               >
                 Check Out
-              </motion.button>
-            ) : (
-              <motion.button
-                whileTap={{ scale: 0.8 }}
-                type="button"
-                className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
-              >
-                Login to check out
-              </motion.button>
-            )}
+              </motion.button>           
           </div>
         </div>
       ) : (

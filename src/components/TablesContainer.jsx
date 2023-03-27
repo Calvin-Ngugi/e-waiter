@@ -10,12 +10,13 @@ const TablesContainer = ({ setTables, tables, setIsSet }) => {
     try {
       if (!tables) {
         setFields(true);
-        setMsg("Required fields can't be empty");
+        setMsg("Required field can't be empty");
         setAlertStatus("danger");
         setTimeout(() => {
           setFields(false);
         }, 4000);
       } else {
+        console.log(tables);
         setIsSet(true);
         setFields(true);
         setMsg("Data Uploaded successfully 😊");
