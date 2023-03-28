@@ -29,6 +29,21 @@ const CartContainer = ({tables}) => {
   }, [tot, flag]);
   
   const convertedObjects = {};
+
+  const saveOrder = () => {
+    dispatch({
+      type: (actionType.SET_PENDING_ORDERS),
+      pendingOrders: cartItems,
+    });
+    localStorage.setItem("pendingOrders", JSON.stringify([]));
+    sendOrder(Object.assign(convertedObjects, pendingOrders));
+    dispatch({
+      type: actionType.SET_CARTITEMS,
+      cartItems: [],
+    });
+
+    localStorage.setItem("cartItems", JSON.stringify([]));
+  }
   
   const clearCart = () => {
     dispatch({
@@ -38,17 +53,7 @@ const CartContainer = ({tables}) => {
 
     localStorage.setItem("cartItems", JSON.stringify([]));
   };
-
-  const saveOrder = () => {
-    dispatch({
-      type: (actionType.SET_PENDING_ORDERS),
-      pendingOrders: cartItems,
-    });
-    localStorage.setItem("pendingOrders", JSON.stringify([]));
-    sendOrder(Object.assign(convertedObjects, pendingOrders));
-  }
   
-
   return (
     <motion.div
       initial={{ opacity: 0, x: 200 }}
@@ -111,7 +116,6 @@ const CartContainer = ({tables}) => {
                 type="button"
                 className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
                 onClick={saveOrder}
-                onDoubleClick={clearCart}
               >
                 Check Out
               </motion.button>           
