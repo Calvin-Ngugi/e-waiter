@@ -167,7 +167,7 @@ const Header = () => {
             src={user ? user.photoURL : "img/avatar.png"}
             alt="user-profile"
             className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
-            onClick={login}
+            onClick={() => setIsMenu(!isMenu)}
           />
           {isMenu && (
             <motion.div
@@ -188,7 +188,10 @@ const Header = () => {
               )}
               <ul className="flex flex-col gap-5 px-4 py-2">
                 <Link to={"/"} hrefLang="#home">
-                  <li onClick={() => setIsMenu(false)} className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100">
+                  <li
+                    onClick={() => setIsMenu(false)}
+                    className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100"
+                  >
                     Home
                   </li>
                 </Link>
@@ -203,18 +206,29 @@ const Header = () => {
                   About
                 </li>
                 <Link to={"/orders"}>
-                  <li onClick={() => setIsMenu(false)} className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100">
+                  <li
+                    onClick={() => setIsMenu(false)}
+                    className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100"
+                  >
                     Orders
                   </li>
                 </Link>
               </ul>
-
-              <p
-                className="px-4 py-2 flex items-center gap-3 cursor-pointer bg-gray-200 hover:bg-gray-300 rounded-lg transition-all duration-100 ease-in-out text-textColor text-base"
-                onClick={logout}
-              >
-                Logout <MdLogout />
-              </p>
+              {user ? (
+                <p
+                  className="px-4 py-2 flex items-center gap-3 cursor-pointer bg-gray-200 hover:bg-gray-300 rounded-lg transition-all duration-100 ease-in-out text-textColor text-base"
+                  onClick={logout}
+                >
+                  Logout <MdLogout />
+                </p>
+              ) : (
+                <p
+                  className="px-4 py-2 flex items-center gap-3 cursor-pointer bg-gray-200 hover:bg-gray-300 rounded-lg transition-all duration-100 ease-in-out text-textColor text-base"
+                  onClick={login}
+                >
+                  Login <MdLogout />
+                </p>
+              )}
             </motion.div>
           )}
         </div>

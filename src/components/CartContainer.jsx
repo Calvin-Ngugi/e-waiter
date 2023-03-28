@@ -9,7 +9,7 @@ import CartItem from "./CartItem";
 import { sendOrder } from "../utils/firebaseFunctions";
 
 const CartContainer = ({tables}) => {
-  const [{ cartShow, cartItems, user, pendingOrders }, dispatch] = useStateValue();
+  const [{ cartShow, cartItems, pendingOrders }, dispatch] = useStateValue();
   const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
   
@@ -41,7 +41,7 @@ const CartContainer = ({tables}) => {
 
   const saveOrder = () => {
     dispatch({
-      type: actionType.SET_PENDING_ORDERS,
+      type: (actionType.SET_PENDING_ORDERS),
       pendingOrders: cartItems,
     });
     localStorage.setItem("pendingOrders", JSON.stringify([]));
@@ -106,7 +106,6 @@ const CartContainer = ({tables}) => {
                 Ksh{tot}
               </p>
             </div>
-
               <motion.button
                 whileTap={{ scale: 0.8 }}
                 type="button"
