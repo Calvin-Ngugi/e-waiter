@@ -43,10 +43,10 @@ const HomeContainer = ({ isSet, setIsSet, setTables, tables }) => {
               </span>
             </p>
             <p className="text-base text-textColor md:w-[80%]">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur
-              debitis tempora dolorem voluptatibus iste tempore, quod sit
-              laboriosam provident molestias ipsam quia, alias nostrum
-              recusandae doloribus omnis? Quo, doloribus aliquam.
+              Welcome to e-waiter app. Once you place your order, go to the
+              cart icon and checkout the order. Once you've confirmed your order,
+              press the checkout button. A popup window will appear asking you to pay either via
+              cash or mpesa. Pay up and your order will be with you right away.
             </p>
             <a
               href="#menu"
